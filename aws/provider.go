@@ -691,6 +691,7 @@ func Provider() terraform.ResourceProvider {
 			"aws_route53_resolver_endpoint":                           resourceAwsRoute53ResolverEndpoint(),
 			"aws_route53_resolver_rule_association":                   resourceAwsRoute53ResolverRuleAssociation(),
 			"aws_route53_resolver_rule":                               resourceAwsRoute53ResolverRule(),
+			"aws_route53_vpc_association_authorization":               resourceAwsRoute53VPCAssociationAuthorization(),
 			"aws_route":                                               resourceAwsRoute(),
 			"aws_route_table":                                         resourceAwsRouteTable(),
 			"aws_default_route_table":                                 resourceAwsDefaultRouteTable(),
