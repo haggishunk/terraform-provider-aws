@@ -19,13 +19,13 @@ import (
 
 // const defaultAuthorizerTTL = 300
 
-func resourceAwsRoute53CreateVPCAssociationAuthorization() *schema.Resource {
+func resourceAwsRoute53VPCAssociationAuthorization() *schema.Resource {
 	return &schema.Resource{
-		Create: resourceAwsRoute53CreateVPCAssociationAuthorizationCreate,
-		Read:   resourceAwsRoute53CreateVPCAssociationAuthorizationRead,
-		// Update:        resourceAwsRoute53CreateVPCAssociationAuthorizationUpdate, // is this needed?
-		Delete: resourceAwsRoute53CreateVPCAssociationAuthorizationDelete,
-		// CustomizeDiff: resourceAwsRoute53CreateVPCAssociationAuthorizationCustomizeDiff, // is this needed?
+		Create: resourceAwsRoute53VPCAssociationAuthorizationCreate,
+		Read:   resourceAwsRoute53VPCAssociationAuthorizationRead,
+		// Update:        resourceAwsRoute53VPCAssociationAuthorizationUpdate, // is this needed?
+		Delete: resourceAwsRoute53VPCAssociationAuthorizationDelete,
+		// CustomizeDiff: resourceAwsRoute53VPCAssociationAuthorizationCustomizeDiff, // is this needed?
 
 		Schema: map[string]*schema.Schema{
 			"zone_id": {
@@ -50,7 +50,7 @@ func resourceAwsRoute53CreateVPCAssociationAuthorization() *schema.Resource {
 	}
 }
 
-func resourceAwsRoute53CreateVPCAssociationAuthorizationCreate(d *schema.ResourceData, meta interface{}) error {
+func resourceAwsRoute53VPCAssociationAuthorizationCreate(d *schema.ResourceData, meta interface{}) error {
 	// create a client session with route53
 	conn := meta.(*AWSClient).r53conn
 
@@ -98,10 +98,10 @@ func resourceAwsRoute53CreateVPCAssociationAuthorizationCreate(d *schema.Resourc
 	// 	return err
 	// }
 
-	return resourceAwsRoute53CreateVPCAssociationAuthorizationRead(d, meta)
+	return resourceAwsRoute53VPCAssociationAuthorizationRead(d, meta)
 }
 
-func resourceAwsRoute53CreateVPCAssociationAuthorizationRead(d *schema.ResourceData, meta interface{}) error {
+func resourceAwsRoute53VPCAssociationAuthorizationRead(d *schema.ResourceData, meta interface{}) error {
 	conn := meta.(*AWSClient).r53conn
 
 	log.Printf("[INFO] Reading VPC Association Authorizations %s", d.Id())
@@ -139,7 +139,7 @@ func resourceAwsRoute53CreateVPCAssociationAuthorizationRead(d *schema.ResourceD
 	return nil
 }
 
-func resourceAwsRoute53CreateVPCAssociationAuthorizationDelete(d *schema.ResourceData, meta interface{}) error {
+func resourceAwsRoute53VPCAssociationAuthorizationDelete(d *schema.ResourceData, meta interface{}) error {
 	conn := meta.(*AWSClient).r53conn
 
 	log.Printf("[INFO] Reading VPC Association Authorizations %s", d.Id())
